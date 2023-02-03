@@ -15,10 +15,10 @@ class Player(BaseModel):
     score: int
 
 
-def extract_alphabet(alphabet_list: str, occurrence: int | None = None):
+def extract_alphabet(alphabet_list: str, occurrence: int = -1):
     selected_alphabet = random.choice(alphabet_list)
     alphabet_list = alphabet_list.replace(
-        selected_alphabet, "", occurrence if occurrence is not None else -1
+        selected_alphabet, "", occurrence
     )
     return alphabet_list, selected_alphabet
 
