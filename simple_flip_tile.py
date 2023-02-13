@@ -43,9 +43,9 @@ def Board(x: int, y: int):
 
     board = []
 
-    for _ in range(x):
+    for _ in range(y):
         row = []
-        for _ in range(y):
+        for _ in range(x):
             if chosen_alphabets != "":
                 chosen_alphabets, selected_alphabet = extract_alphabet(
                     chosen_alphabets, 1
@@ -93,27 +93,27 @@ def start():
         get_position_y1 = input("y1: ")
         get_position_x1 = int(get_position_x1) - 1
         get_position_y1 = int(get_position_y1) - 1
-        temp_value_1 = board[get_position_x1][get_position_y1]
-        board_display[get_position_x1][get_position_y1] = temp_value_1.character
+        temp_value_1 = board[get_position_y1][get_position_x1]
+        board_display[get_position_y1][get_position_x1] = temp_value_1.character
         display(board_display)
         print("Give the coordinate of the second value of a pair.")
         get_position_x2 = input("x2: ")
         get_position_y2 = input("y2: ")
         get_position_x2 = int(get_position_x2) - 1
         get_position_y2 = int(get_position_y2) - 1
-        temp_value_2 = board[get_position_x2][get_position_y2]
+        temp_value_2 = board[get_position_y2][get_position_x2]
         if (
             temp_value_1.character != temp_value_2.character
             or temp_value_1.guessed == True
             or temp_value_2.guessed == True
         ):
             if temp_value_1.guessed != True:
-                board_display[get_position_x1][get_position_y1] = "?"
+                board_display[get_position_y1][get_position_x1] = "?"
             print("Invalid value!")
         else:
-            board_display[get_position_x2][get_position_y2] = temp_value_2.character
-            board[get_position_x1][get_position_y1].guessed = True
-            board[get_position_x2][get_position_y2].guessed = True
+            board_display[get_position_y2][get_position_x2] = temp_value_2.character
+            board[get_position_y1][get_position_x1].guessed = True
+            board[get_position_y2][get_position_x2].guessed = True
             endcount -= 1
         display(board_display)
 
